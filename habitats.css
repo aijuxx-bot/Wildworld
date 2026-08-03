@@ -1,0 +1,156 @@
+/* ==========================================
+   Habitats 頁面專屬排版與 CSS Grid 網格樣式
+   ========================================== */
+
+/* 1. 主內容區域的背景與間距 */
+.habitats-main {
+    min-height: 100vh;
+    /* 🛠️ 由原本的純色，換成從中央(#122c21)向外圍變深(#08140f)的微光漸層 */
+    background: radial-gradient(circle at center, #122c21 0%, #08140f 100%); 
+    padding: 140px 50px 80px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 2. 頁面標題區域 */
+.habitats-header {
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 60px;
+}
+
+.habitats-header .sub-title {
+    color: #6382f7; /* 沿用首頁的藍色小標 */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.habitats-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.habitats-header .intro-text {
+    color: #b0c0b8;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* 3. 🔥 大魔王：CSS Grid 網格佈局 */
+.habitats-grid {
+    display: grid;
+    /* 意思是：將區域平分成 3 欄，每欄寬度均等（1fr = 1等份） */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* 卡片與卡片之間的精緻間距 */
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* 4. 單張棲息地卡片外觀 */
+.habitat-card {
+    height: 480px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden; /* 超過圓角的圖片隱藏，這行是放大特效必備 */
+    display: flex;
+    align-items: flex-end; /* 讓文字內容自動靠在卡片底部 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    
+    /* 這裡加上過渡動畫，當滑鼠移入時，背景圖片的縮放才會絲滑 */
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 5. 卡片內的半透明黑色漸層遮罩 */
+.card-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    /* 使用漸層（Gradient）：頂部透明度 20%，底部 90% 黑，用來突顯白色文字 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 40%, rgba(0,0,0,1.9) 100%);
+    z-index: 1;
+    transition: opacity 0.4s ease;
+}
+
+/* 6. 卡片文字內容容器 */
+.card-content {
+    position: relative;
+    z-index: 2; /* 壓在黑底遮罩上面 */
+    padding: 35px;
+    
+    /* 進階特效：預設讓下方的描述字體和按鈕往下移 40px，並完全透明隱形 */
+    transform: translateY(40px);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-tag {
+    color: var(--primary-orange); /* 亮橘色標籤 */
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    
+    /* 預設隱形，等滑鼠 hover 才淡入 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 卡片按鈕 */
+.btn-card {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary-orange); /* 優雅的橘色下底線 */
+    padding-bottom: 5px;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.3s ease, color 0.2s;
+}
+.btn-card:hover {
+    color: var(--primary-orange);
+}
+
+/* ==========================================
+   ⚡ 終極華麗連鎖 Hover 特效 ⚡
+   ========================================== */
+
+/* 當滑鼠移入卡片時： */
+.habitat-card:hover {
+    transform: translateY(-8px); /* 1. 整張卡片優雅地微微向上浮起 8 像素 */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.habitat-card:hover .card-content {
+    transform: translateY(0); /* 2. 隱藏的文字內容絲滑地向上回彈到原位 */
+}
+
+.habitat-card:hover p,
+.habitat-card:hover .btn-card {
+    opacity: 1; /* 3. 原本看不清的內文和按鈕「優雅淡入」現身 */
+    transition-delay: 0.1s; /* 稍微延遲 0.1 秒，讓動畫更有層次感 */
+}

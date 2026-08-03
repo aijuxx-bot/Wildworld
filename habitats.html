@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildworld - Habitats</title>
+    <!-- 引入與首頁相同的字體 -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- 共用原本的 style.css，並加入新頁面專屬的 habitats.css -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="habitats.css">
+</head>
+<body>
+
+    <!-- 頂部選單（與首頁完全共用樣式） -->
+    <header>
+        <div class="logo">WILDWORLD</div>
+        <nav>
+            <!-- 🛠️ 核心串聯：點擊 Explore 會跳回首頁 index.html -->
+            <a href="index.html">Explore</a>
+            <!-- 目前身處 Habitats 頁面，所以把 active 貼在牠身上 -->
+            <a href="habitats.html" class="active">Habitats</a>
+            <a href="conservation.html">Conservation</a>
+            <a href="adopt.html">Adopt</a>
+        <a href="about.html">About</a>
+        </nav>
+        <a href="#" class="btn-donate">DONATE</a>
+    </header>
+
+    <!-- 棲息地主內文區域 -->
+    <main class="habitats-main">
+        <div class="habitats-header">
+            <p class="sub-title">Global Ecosystems</p>
+            <h1>Explore Their Worlds</h1>
+            <p class="intro-text">Journey through the vital landscapes that sustain earth's remaining wildlife. Every habitat is a delicate balance of life that requires our ultimate protection.</p>
+        </div>
+
+        <!-- 🛠️ CSS Grid 網格卡片區域 -->
+        <div class="habitats-grid">
+            
+            <!-- 卡片 1：薩瓦納大草原 -->
+            <div class="habitat-card" style="background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/894600/ss_01be5f99d9385d5d9320c81e71c7c5b8b66a1956.1920x1080.jpg?t=1732104905');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="card-tag">Savanna</span>
+                    <h3>African Plains</h3>
+                    <p>Home to the world's most iconic predators and massive migrations, facing severe threats from intensifying droughts.</p>
+                    <a href="#" class="btn-card">Learn More</a>
+                </div>
+            </div>
+
+            <!-- 卡片 2：熱帶雨林 -->
+            <div class="habitat-card" style="background-image: url('https://images.squarespace-cdn.com/content/v1/5cf3b06ac7ccc400015fa1ae/1561836643962-ZP05AP2LO98NMML667JG/aira+force+falls_1.jpg');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="card-tag">Rainforest</span>
+                    <h3>Amazon Basin</h3>
+                    <p>The lungs of our planet, sheltering over 10% of global biodiversity, fighting against rapid deforestation.</p>
+                    <a href="#" class="btn-card">Learn More</a>
+                </div>
+            </div>
+
+            <!-- 卡片 3：深海海洋 -->
+            <div class="habitat-card" style="background-image: url('https://wwfint.awsassets.panda.org/img/original_ww1287622_793801.webp');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="card-tag">Ocean</span>
+                    <h3>Deep Blue Coral</h3>
+                    <p>Vast underwater sanctuaries protecting marine lifelines, heavily impacted by rising temperature anomalies.</p>
+                    <a href="#" class="btn-card">Learn More</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 這裡放入步驟 3 的 JavaScript 控制切換 -->
+    <script src="script.js"></script>
+
+    <!-- 【核心修正】：重新補回包裹住 modal-box 的外部大遮罩 modal-overlay -->
+    <div class="modal-overlay" id="donateModal">
+        <div class="modal-box">
+            <!-- 右上角關閉按鈕 -->
+            <button class="modal-close" id="closeBtn">&times;</button>
+            
+            <form id="modalForm">
+                <h2>Support Wildlife Conservation</h2>
+                <p>Every contribution goes directly toward rescuing injured animals and restoring their natural habitats.</p>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="e.g., John Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Support Option</label>
+                    <select>
+                        <option>Monthly Adoption ($15/month)</option>
+                        <option>One-time Donation</option>
+                        <option>Become a Sanctuary Volunteer</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-submit">Support Now</button>
+            </form>
+
+            <!-- 成功感謝畫面 -->
+            <div id="thankYouState" style="display: none; text-align: center; padding: 20px 0;">
+                <div style="font-size: 4rem; color: #123026; margin-bottom: 15px;">✓</div>
+                <h2 style="color: #123026; margin-bottom: 10px;">Thank You!</h2>
+                <p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                    Your incredible support has been received.<br>
+                    Together, we are making a wild difference.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

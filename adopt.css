@@ -1,0 +1,259 @@
+/* ==========================================
+   Adopt 頁面專屬：卡片與大背景全面高清圖片化
+   ========================================== */
+
+/* 1. 🛠️ 升級大背景：加入深色森林背景圖 + fixed 視差滾動 */
+.adopt-main {
+    min-height: 100vh;
+    padding: 140px 50px 100px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* 壓上 88% 的深色濾鏡，讓大背景呈現神祕的暗夜森林質感 */
+    background: linear-gradient(rgba(10, 23, 18, 0.68), rgba(10, 23, 18, 0.68)), 
+                url('https://i.abcnewsfe.com/a/eaa5a3a4-523a-4233-9a6d-7521b59e04c0/ocean-3-gty-er-250618_1750278870618_hpEmbed_18x11.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* 視差滾動效果 */
+}
+
+/* 2. 頁面標題與篩選按鈕區域 */
+.adopt-header {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.adopt-header .sub-title {
+    color: #6382f7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.adopt-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.adopt-header .intro-text {
+    color: #b0c0b8;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* 分類篩選按鈕組樣式 */
+.filter-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-filter {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-filter.active, .btn-filter:hover {
+    background: var(--primary-orange);
+    border-color: var(--primary-orange);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(229, 142, 69, 0.3);
+    transform: translateY(-2px);
+}
+
+/* 動物卡片 Grid 佈局（一排 3 列） */
+.adopt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* 3. 🛠️ 升級單張動物卡片：改為全圖片高檔滿版設計，並注入高級毛玻璃 */
+.animal-card {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    height: 700px; /* 固定整張卡片的高度 */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* 讓文字自動靠在最底部 */
+    
+    background-size: cover;
+    background-position: center;
+    
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15), opacity 0.3s ease, visibility 0.3s;
+}
+
+/* ==========================================
+   🛠️ 核心修正：調整每張圖片的對齊焦點，防止遮到動物的臉
+   ========================================== */
+.animal-card[data-type="land"]:nth-child(1) {
+    background-image: url('https://www.lpzoo.org/wp-content/uploads/2023/01/Allycia_Darst_3_Pilipili-scaled-1.jpg');
+    background-position: top; /* 🌟 關鍵：讓獅子寶寶的圖片由頂部對齊，把牠的頭像往下推，露出完整的臉！ */
+}
+
+.animal-card[data-type="land"]:nth-child(2) {
+    background-image: url('https://s.hdnux.com/photos/01/03/50/12/17728166/12/rawImage.jpg');
+    background-position: center; /* 獵豹保持居中 */
+}
+
+.animal-card[data-type="ocean"] {
+    background-image: url('https://i.pinimg.com/736x/98/e0/7c/98e07c0d26f55189bb13a0d1761c1740.jpg');
+    background-position: center; /* 鯨魚保持居中 */
+}
+
+/* 移除原本 HTML 內那個多餘的空白占位圖片區域 */
+.animal-img {
+    display: none; 
+}
+
+/* 4. 🛠️ 升級卡片下半部：加上毛玻璃特效（Glassmorphism）與漸層遮罩 */
+/* 這樣做圖片就會從背後淡淡地透出來，既看清動物，又看清白色字體！ */
+.animal-info {
+    padding: 30px;
+    background: rgba(13, 32, 24, 0.15); /* 75% 透明度的深綠黑底 */
+    backdrop-filter: blur(10px); /* 高級毛玻璃折射特效 */
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    text-align: left;
+}
+
+/* 將原本黑色字體全部改為純白與淡色，完美融入暗色系網頁 */
+.animal-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #fff; /* 🛠️ 改為白色 */
+    margin-bottom: 5px;
+}
+
+.species-name {
+    display: inline-block;
+    color: var(--primary-orange);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.animal-info p {
+    color: #b0c0b8; /* 🛠️ 改為優雅的淡綠灰色 */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    height: 70px;
+    overflow: hidden;
+}
+
+/* 認養按鈕調色，改為醒目的白色配橘色 hover */
+.btn-adopt-now {
+    display: block;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+
+.btn-adopt-now:hover {
+    background: var(--primary-orange);
+    border-color: var(--primary-orange);
+    transform: scale(1.02);
+}
+
+/* 滑鼠懸停在整張卡片時，卡片優雅上浮 */
+.animal-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* 篩選隱藏貼紙 */
+.animal-card.hide {
+    transform: scale(0.7);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+}
+
+/* ==========================================
+   新增：點擊睇全相（Lightbox）燈箱樣式
+   ========================================== */
+.image-lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: rgba(0, 0, 0, 0.9); /* 90% 的極深黑，讓全相更震撼 */
+    z-index: 200; /* 確保它是全網頁最上層 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 預設隱藏 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s;
+}
+
+/* 啟動狀態 */
+.image-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 大圖外觀 */
+.lightbox-img {
+    max-width: 85%;
+    max-height: 85vh; /* 限制圖片最高只佔螢幕 85%，防止圖片太大跑版 */
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    
+    /* 彈出時的微微放大動畫 */
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.image-lightbox.active .lightbox-img {
+    transform: scale(1); /* 彈出時回復 100% 大小 */
+}
+
+/* 右上角關閉 X 按鈕 */
+.lightbox-close {
+    position: absolute;
+    top: 30px; right: 40px;
+    background: none; border: none;
+    font-size: 3rem; color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+.lightbox-close:hover { 
+    color: #fff; 
+    transform: scale(1.1);
+}
+

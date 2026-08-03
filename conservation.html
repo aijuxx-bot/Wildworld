@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildworld - Conservation</title>
+    <!-- 引入相同的字體 -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- 共用原本的 style.css，並加入此頁專屬的 conservation.css -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="conservation.css">
+</head>
+<body>
+
+    <!-- 頂部選單（與前兩頁完美共用樣式） -->
+    <header>
+        <div class="logo">WILDWORLD</div>
+        <nav>
+            <a href="index.html">Explore</a>
+            <a href="habitats.html">Habitats</a>
+            <!-- 目前身處 Conservation 頁面，所以把 active 貼在牠身上 -->
+            <a href="conservation.html" class="active">Conservation</a>
+            <a href="adopt.html">Adopt</a>
+        <a href="about.html">About</a>
+        </nav>
+        <a href="#" class="btn-donate">DONATE</a>
+    </header>
+
+    <!-- 保育計畫主內容區域 -->
+    <main class="conservation-main">
+        <div class="conservation-header">
+            <p class="sub-title">Our Journey</p>
+            <h1>Conservation Timeline</h1>
+            <p class="intro-text">Real action creates real impact. Track our major breakthroughs over the years as we fight on the frontlines to save endangered species and rebuild their vanishing worlds.</p>
+        </div>
+
+        <!-- 🛠️ 核心：垂直時光軸容器 -->
+        <div class="timeline-container">
+            
+            <!-- 里程碑 1 (左邊) -->
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="year-tag">2020</span>
+                    <h3>The Genesis Project</h3>
+                    <p>Wildworld was founded with a mission to protect African plains. We successfully secured our first 50,000 acres of anti-poaching sanctuary in Kenya.</p>
+                </div>
+            </div>
+
+            <!-- 里程碑 2 (右邊) -->
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="year-tag">2022</span>
+                    <h3>Guardians of Ocean Noise</h3>
+                    <p>Launched the 'Echoes of Whales' project. Deployed 45 underwater sound monitors to map and establish marine noise-free shipping corridors.</p>
+                </div>
+            </div>
+
+            <!-- 里程碑 3 (左邊) -->
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="year-tag">2024</span>
+                    <h3>Leopard Trackers Deployed</h3>
+                    <p>Equipped critically endangered Amur Leopards with satellite tracking collars, increasing poacher detection accuracy by 40% in Eastern Russia.</p>
+                </div>
+            </div>
+
+            <!-- 里程碑 4 (右邊) -->
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="year-tag">2026</span>
+                    <h3>Global Sky Corridor</h3>
+                    <p>Established a multi-national avian flightway sanctuary spanning 12 borders, protecting migratory paths for millions of avian species.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 這裡放入步驟 3 的 JavaScript 控制切換 -->
+    <script src="script.js"></script>
+
+    <!-- 【核心修正】：重新補回包裹住 modal-box 的外部大遮罩 modal-overlay -->
+    <div class="modal-overlay" id="donateModal">
+        <div class="modal-box">
+            <!-- 右上角關閉按鈕 -->
+            <button class="modal-close" id="closeBtn">&times;</button>
+            
+            <form id="modalForm">
+                <h2>Support Wildlife Conservation</h2>
+                <p>Every contribution goes directly toward rescuing injured animals and restoring their natural habitats.</p>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="e.g., John Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Support Option</label>
+                    <select>
+                        <option>Monthly Adoption ($15/month)</option>
+                        <option>One-time Donation</option>
+                        <option>Become a Sanctuary Volunteer</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-submit">Support Now</button>
+            </form>
+
+            <!-- 成功感謝畫面 -->
+            <div id="thankYouState" style="display: none; text-align: center; padding: 20px 0;">
+                <div style="font-size: 4rem; color: #123026; margin-bottom: 15px;">✓</div>
+                <h2 style="color: #123026; margin-bottom: 10px;">Thank You!</h2>
+                <p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                    Your incredible support has been received.<br>
+                    Together, we are making a wild difference.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

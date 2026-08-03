@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildworld - Adopt an Animal</title>
+    <!-- 引入相同的字體 -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- 共用原本的 style.css，並加入此頁專屬的 adopt.css -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="adopt.css">
+</head>
+<body>
+
+    <!-- 頂部選單 -->
+    <header>
+        <div class="logo">WILDWORLD</div>
+        <nav>
+            <a href="index.html">Explore</a>
+            <a href="habitats.html">Habitats</a>
+            <a href="conservation.html">Conservation</a>
+            <a href="adopt.html" class="active">Adopt</a>
+            <a href="about.html">About</a>
+        </nav>
+        <a href="#" class="btn-donate">DONATE</a>
+    </header>
+
+    <!-- 認養專區主內容區域 -->
+    <main class="adopt-main">
+        <div class="adopt-header">
+            <p class="sub-title">Make a Difference</p>
+            <h1>Adopt an Animal Star</h1>
+            <p class="intro-text">Bring hope to the wild. By symbolically adopting one of our animal stars, you fund their daily protection, food, and medical care. You will receive an official adoption certificate and monthly tracking updates.</p>
+            
+            <!-- 分類篩選按鈕組 -->
+            <div class="filter-group">
+                <button class="btn-filter active" data-category="all">All Species</button>
+                <button class="btn-filter" data-category="land">Land Mammals</button>
+                <button class="btn-filter" data-category="ocean">Ocean Life</button>
+            </div>
+        </div>
+
+        <!-- 動物明星卡片網格區域 -->
+        <div class="adopt-grid">
+            
+            <!-- 動物 1：非洲獅 Simba -->
+            <div class="animal-card" data-type="land">
+                <div class="animal-img" style="background-image: url('https://wallpapers.com');"></div>
+                <div class="animal-info">
+                    <h3>Simba</h3>
+                    <span class="species-name">African Lion</span>
+                    <p>Rescued from habitat fragmentation in Kenya. Simba is now the proud leader of our protected sanctuary pride.</p>
+                    <a href="#" class="btn-adopt-now">Sponsor Simba</a>
+                </div>
+            </div>
+
+            <!-- 動物 2：阿穆爾獵豹 Luna -->
+            <div class="animal-card" data-type="land">
+                <div class="animal-img" style="background-image: url('https://10wallpaper.com');"></div>
+                <div class="animal-info">
+                    <h3>Luna</h3>
+                    <span class="species-name">Amur Leopard</span>
+                    <p>One of the remaining 100 wild Amur leopards. Luna is closely monitored via our satellite tracking collar initiative.</p>
+                    <a href="#" class="btn-adopt-now">Sponsor Luna</a>
+                </div>
+            </div>
+
+            <!-- 動物 3：座頭鯨 Kaimana -->
+            <div class="animal-card" data-type="ocean">
+                <div class="animal-img" style="background-image: url('https://popsci.com');"></div>
+                <div class="animal-info">
+                    <h3>Kaimana</h3>
+                    <span class="species-name">Humpback Whale</span>
+                    <p>Fund satellite telemetry tracking for Kaimana. Your symbolic adoption directly finances ocean patrol teams and anti-plastic marine net removal operations.</p>
+                    <a href="#" class="btn-adopt-now">Sponsor Kaimana</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 🛠️【已幫你補齊】：彈出式認養/捐款表格容器，多頁面網站必須每頁都有這段骨架 -->
+    <div class="modal-overlay" id="donateModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeBtn">&times;</button>
+            <form id="modalForm">
+                <h2>Support Wildlife Conservation</h2>
+                <p>Every contribution goes directly toward rescuing injured animals and restoring their natural habitats.</p>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="e.g., John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Support Option</label>
+                    <select>
+                        <option>Monthly Adoption ($15/month)</option>
+                        <option>One-time Donation</option>
+                        <option>Become a Sanctuary Volunteer</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Support Now</button>
+            </form>
+            <div id="thankYouState" style="display: none; text-align: center; padding: 20px 0;">
+                <div style="font-size: 4rem; color: #123026; margin-bottom: 15px;">✓</div>
+                <h2 style="color: #123026; margin-bottom: 10px;">Thank You!</h2>
+                <p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                    Your incredible support has been received.<br>
+                    Together, we are making a wild difference.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入外部 JavaScript（確保這行在最底部） -->
+    <script src="script.js"></script>
+
+    <!-- 🛠️【全新加入】：睇全相的高清圖片燈箱（Lightbox） -->
+    <div class="image-lightbox" id="imageLightbox">
+        <!-- 點擊任何地方或者 X 都可以關閉 -->
+        <button class="lightbox-close" id="closeLightboxBtn">&times;</button>
+        <!-- 這是用來動態顯示高清大圖的容器 -->
+        <img src="" alt="Full View" class="lightbox-img" id="lightboxImg">
+    </div>
+
+
+</body>
+</html>

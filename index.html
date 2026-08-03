@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildworld - Home</title>
+    <!-- 引入高質感襯線字體與內文字體 -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <!-- 這裡將會放入步驟 2 的 CSS 樣式 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+
+    <!-- 頂部選單 -->
+    <header>
+        <div class="logo">WILDWORLD</div>
+        <nav>
+            <a href="#" class="active">Explore</a>
+        <!-- 🛠️ 核心串聯：這裡加上檔名，點擊時才能跳去新網頁 -->
+        <a href="habitats.html">Habitats</a>
+        <a href="conservation.html">Conservation</a>
+        <a href="adopt.html">Adopt</a>
+        <a href="about.html">About</a>
+        </nav>
+        <a href="#" class="btn-donate">DONATE</a>
+    </header>
+
+    <div class="hero">
+        <!-- 第 1 張：獅子 -->
+        <div class="slide active">
+            <div class="slide-bg" style="background-image: url('https://wallpapers.com/images/featured/lion-hrje02z5tlevvwvb.jpg')"></div>
+            <div class="slide-content">
+                <p class="tagline">Discover the natural world</p>
+                <h1 class="title">Every Animal<br><em>Deserves</em><br>to Be Known</h1>
+                <p class="description">Journey through thousands of species, from sun-baked savannas to frozen poles. Learn, explore, and help protect the wild world.</p>
+                <div class="cta-group">
+                    <a href="https://wikipedia.org" class="btn-primary explore-link" target="_blank">EXPLORE ANIMALS</a>
+                    <a href="#mission-section" class="btn-secondary">OUR MISSION</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第 2 張：獵豹 -->
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('https://www.10wallpaper.com/wallpaper/1366x768/1310/Cheetah_on_the_prairie-Animal_World_Wallpaper_1366x768.jpg')"></div>
+            <div class="slide-content">
+                <p class="tagline">Protect the vanishing</p>
+                <h1 class="title">Wild Beauty<br><em>Vanishing</em><br>Before Our Eyes</h1>
+                <p class="description">Act now before their tracks vanish from the earth forever. Every second counts in our race against extinction.</p>
+                <div class="cta-group">
+                    <a href="https://en.wikipedia.org/wiki/Amur_leopard" class="btn-primary explore-link" class="btn-primary explore-link" target="_blank">EXPLORE ANIMALS</a>
+                    <!-- 【已修正】：這裡精準連向 #species-section -->
+                    <a href="#species-section" class="btn-secondary">SPECIES AT RISK</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第 3 張：海洋 -->
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('https://www.popsci.com/wp-content/uploads/2025/05/humpback-whale-calf.png?quality=85&w=2000')"></div>
+            <div class="slide-content">
+                <p class="tagline">Dive into the deep blue</p>
+                <h1 class="title">The Ocean<br><em>Sings</em><br>with Their Voice</h1>
+                <p class="description">From the smallest coral to the great blue whale, discover the melodies of our oceans and protect marine sanctuaries.</p>
+                <div class="cta-group">
+                    <a href="https://en.wikipedia.org/wiki/Humpback_whale" class="btn-primary explore-link" target="_blank">EXPLORE OCEANS</a>
+                    <!-- 【已修正】：這裡精準連向 #marine-section -->
+                    <a href="#marine-section" class="btn-secondary">MARINE LIFE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第 4 張：飛鳥 -->
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/31487797/pexels-photo-31487797/free-photo-of-close-up-of-a-zebra-finch-on-a-branch.jpeg')"></div>
+            <div class="slide-content">
+                <p class="tagline">Soar into the skies</p>
+                <h1 class="title">Freedom<br><em>Takes Flight</em><br>on Mighty Wings</h1>
+                <p class="description">Witness the awe-inspiring migratory journeys across continents. Protect global flyways and avian habitats.</p>
+                <div class="cta-group">
+                    <a href="https://en.wikipedia.org/wiki/Zebra_finch" class="btn-primary explore-link" target="_blank">VIEW FLYWAYS</a>
+                    <!-- 【已修正】：這裡精準連向 #avian-section -->
+                    <a href="#avian-section" class="btn-secondary">AVIAN RESEARCH</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右側小圖案導覽列 -->
+        <div class="side-nav">
+            <div class="indicator active" onclick="goToSlide(0)" style="background-image: url('https://wallpapers.com/images/featured/lion-hrje02z5tlevvwvb.jpg')"></div>
+            <div class="indicator" onclick="goToSlide(1)" style="background-image: url('https://www.10wallpaper.com/wallpaper/1366x768/1310/Cheetah_on_the_prairie-Animal_World_Wallpaper_1366x768.jpg')"></div>
+            <div class="indicator" onclick="goToSlide(2)" style="background-image: url('https://baleinesendirect.org/wp-content/uploads/2023/10/379661480_10162960909058957_1180840533304627900_n.jpeg')"></div>
+            <div class="indicator" onclick="goToSlide(3)" style="background-image: url('https://images.pexels.com/photos/31487797/pexels-photo-31487797/free-photo-of-close-up-of-a-zebra-finch-on-a-branch.jpeg')"></div>
+        </div>
+
+        <!-- 【已幫你加入】底部動物名稱與地區標籤 -->
+        <div class="bottom-info">
+            <div class="animal-tag active">African Lion <span>| Sub-Saharan Africa</span></div>
+            <div class="animal-tag">Amur Leopard <span>| Eastern Russia</span></div>
+            <div class="animal-tag">Humpback Whale <span>| Pacific Ocean</span></div>
+            <div class="animal-tag">Zebra Finch <span>| Australia</span></div>
+            
+            <!-- 已修正：4 個完全對齊的正確小圓點 -->
+            <div class="bottom-dots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+
+        <!-- 左右箭頭按鈕 -->
+        <div class="nav-arrow arrow-left" onclick="prevSlide()">&lt;</div>
+        <div class="nav-arrow arrow-right" onclick="nextSlide()">&gt;</div>
+    </div>
+
+    <!-- 這裡放入步驟 3 的 JavaScript 控制切換 -->
+    <script src="script.js"></script>
+
+    <!-- 【核心修正】：重新補回包裹住 modal-box 的外部大遮罩 modal-overlay -->
+    <div class="modal-overlay" id="donateModal">
+        <div class="modal-box">
+            <!-- 右上角關閉按鈕 -->
+            <button class="modal-close" id="closeBtn">&times;</button>
+            
+            <form id="modalForm">
+                <h2>Support Wildlife Conservation</h2>
+                <p>Every contribution goes directly toward rescuing injured animals and restoring their natural habitats.</p>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="e.g., John Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Support Option</label>
+                    <select>
+                        <option>Monthly Adoption ($15/month)</option>
+                        <option>One-time Donation</option>
+                        <option>Become a Sanctuary Volunteer</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-submit">Support Now</button>
+            </form>
+
+            <!-- 成功感謝畫面 -->
+            <div id="thankYouState" style="display: none; text-align: center; padding: 20px 0;">
+                <div style="font-size: 4rem; color: #123026; margin-bottom: 15px;">✓</div>
+                <h2 style="color: #123026; margin-bottom: 10px;">Thank You!</h2>
+                <p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                    Your incredible support has been received.<br>
+                    Together, we are making a wild difference.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增：網頁下方的介紹區域 -->
+    <!-- 區塊 1：獅子的 OUR MISSION -->
+    <section class="mission-container" id="mission-section">
+        <div class="mission-content">
+            <p class="mission-tag">Our Core Values</p>
+            <h2>Protecting the Wild, <br>Preserving the Future</h2>
+            <p class="mission-text">Our mission is to safeguard endangered species and their habitats through global conservation initiatives, community education, and direct field action.</p>
+            <div class="stats-grid">
+                <div class="stat-card"><h3>1,200+</h3><p>Animals Rescued</p></div>
+                <div class="stat-card"><h3>450k</h3><p>Acres Protected</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 區塊 2：獵豹的 SPECIES AT RISK -->
+    <section class="mission-container" id="species-section" style="background-color: #121e16;">
+        <div class="mission-content">
+            <p class="mission-tag">On The Brink</p>
+            <h2>Vanishing Tracks, <br>Urgent Action Required</h2>
+            <p class="mission-text">The Amur Leopard and Cheetah populations are facing unprecedented threats from illegal hunting and habitat fragmentation. Every single tracker deployed helps us monitor and save a life.</p>
+            <div class="stats-grid">
+                <div class="stat-card"><h3>7%</h3><p>Habitat Left</p></div>
+                <div class="stat-card"><h3>Critically</h3><p>Endangered</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 區塊 3：鯨魚的 MARINE LIFE -->
+    <section class="mission-container" id="marine-section" style="background-color: #0b1a24;">
+        <div class="mission-content">
+            <p class="mission-tag">Ocean Sanctuaries</p>
+            <h2>The Deep Blue, <br>Echoes of the Whales</h2>
+            <p class="mission-text">Commercial shipping noise and plastic pollution threaten the complex vocal communication networks of humpback whales. We create safe marine noise-free corridors.</p>
+            <div class="stats-grid">
+                <div class="stat-card"><h3>12</h3><p>Marine Protected Zones</p></div>
+                <div class="stat-card"><h3>200+</h3><p>Whales Tracked</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 區塊 4：小鳥的 AVIAN RESEARCH -->
+    <section class="mission-container" id="avian-section" style="background-color: #1a1612;">
+        <div class="mission-content">
+            <p class="mission-tag">Migratory Paths</p>
+            <h2>Mighty Wings, <br>Boundless Horizons</h2>
+            <p class="mission-text">Bird migration routes bridge global continents but face urban expansion threats. Our avian research tracks flyways to ensure safe resting habitats across borders.</p>
+            <div class="stats-grid">
+                <div class="stat-card"><h3>34</h3><p>Flyway Corridors</p></div>
+                <div class="stat-card"><h3>15k</h3><p>Birds Banded</p></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 引入外部 JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- 【新加入】：右下角固定浮動的回到頂部按鈕 -->
+    <a href="#top" class="back-to-top" title="Back to Top">↑</a>
+</body>
+
+
+</body>
+</html>

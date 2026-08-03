@@ -1,0 +1,580 @@
+/* 全網頁解鎖：所有內嵌錨點跳轉一律變成平滑滾動 */
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-orange: #e58e45;
+    --bg-overlay: rgba(13, 32, 24, 0.4); /* 深綠色偏暗色調遮罩 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #0d2018;
+    color: #fff;
+    
+    /* 🛠️ 【終極封印】：強制將整個網頁高度鎖死在一個螢幕內， */
+    /* 徹底閹割所有滑鼠中鍵、鍵盤、拉動滾動條的手動可能性！ */
+    height: 100vh;
+    overflow: hidden; 
+}
+
+/* 導航欄 Navigation */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    z-index: 10;
+}
+
+.logo {
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+/* 當前正在看的選單（Explore）保持純白 */
+nav a.active {
+    color: #fff;
+}
+
+/* 滑鼠移過去的其他選單（如 Habitats, About）會變成亮橘色 */
+nav a:hover {
+    color: var(--primary-orange);
+}
+
+.btn-donate {
+    background: var(--primary-orange);
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    /* 專業整理：把過渡效果直接融進同一個區塊的最底部 */
+    transition: background 0.3s, transform 0.2s ease-out; /* 新增這行：控制顏色與放大效果的變換速度 */
+}
+
+/* Hover 特效保持獨立（因為它是特定狀態才觸發） */
+.btn-donate:hover {
+    background: #d47d33;          /* 將原本的橘色，稍微加深一點點 */
+    transform: scale(1.08);       /* 讓整個按鈕稍微放大 1.08 倍 */
+}
+
+
+/* 輪播主區域 Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* 🛠️ 確保這裡有加上 overflow: hidden！ */
+}
+
+/* 投影片 Slide */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease-in-out, visibility 1.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 背景圖片與深綠色濾鏡 */
+.slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.slide-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-overlay);
+}
+
+/* 內容文字樣式 */
+.slide-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    padding: 0 20px;
+}
+
+.tagline {
+    color: #6382f7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    opacity: 0; /* 新增這行：動畫開始前先隱藏 */
+
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.8rem;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    opacity: 0; /* 新增這行：動畫開始前先隱藏 */
+
+}
+
+.title em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--primary-orange);
+    font-weight: 700;
+}
+
+.description {
+    color: #b0c0b8;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0; /* 新增這行：動畫開始前先隱藏 */
+
+}
+
+/* 按鈕樣式 */
+.cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0; /* 新增這行：動畫開始前先隱藏 */
+
+}
+
+.btn-primary {
+    background: var(--primary-orange);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.btn-secondary {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* 右側小圖案導覽列 Side Indicators */
+.side-nav {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.indicator::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    border-radius: 12px;
+    transition: background 0.3s;
+}
+
+.indicator.active {
+    border: 2px solid var(--primary-orange);
+    transform: scale(1.1);
+}
+
+.indicator.active::after {
+    background: rgba(0,0,0,0);
+}
+
+/* 左右切換箭頭 */
+.nav-arrow {
+    position: absolute;
+    bottom: 50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+}
+.arrow-left { left: 50px; }
+.arrow-right { right: 50px; }
+
+
+
+/* ==========================================
+   新增：底部動物標籤與小圓點樣式
+   ========================================== */
+.bottom-info {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.animal-tag {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+    display: none; /* 預設先隱藏，交給 JS 控制 */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.animal-tag span {
+    color: rgba(255, 255, 255, 0.5); /* 讓地區呈現淡淡的半透明灰色 */
+    font-weight: 400;
+}
+
+/* 當前圖片對應的動物名稱會亮起 */
+.animal-tag.active {
+    display: block;
+    opacity: 1;
+}
+
+/* 底部小圓點容器 */
+.bottom-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.dot.active {
+    background: var(--primary-orange); /* 正在看的那張圖，圓點會變亮橘色 */
+    transform: scale(1.2);
+}
+
+/* ==========================================
+   大魔王：定義文字由下往上浮現的動畫劇本
+   ========================================== */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px); /* 從下方 40 像素的位置開始 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* 回到原本的位置 */
+    }
+}
+
+/* 當投影片啟動時，裡面的大標題套用動畫 */
+.slide.active .title {
+    animation: slideUpFade 1.2s ease-out forwards; /* 1.2秒內演完，演完後停在最後一格（forwards） */
+}
+
+/* 同場加映：讓副標題（.tagline）和描述（.description）也一起動，但加一點點延遲（Delay） */
+.slide.active .tagline {
+    animation: slideUpFade 1s ease-out 0.2s forwards; /* 0.2s 代表延遲 0.2 秒才開始演 */
+}
+
+.slide.active .description, 
+.slide.active .cta-group {
+    animation: slideUpFade 1.2s ease-out 0.4s forwards; /* 延遲 0.4 秒才開始演 */
+}
+
+/* ==========================================
+   新增：彈出式視窗（Modal）樣式
+   ========================================== */
+/* 鋪滿全螢幕的黑底遮罩 */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* 70% 透明度的黑底 */
+    z-index: 100; /* 確保它壓在所有人上面 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 預設隱藏狀態 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s;
+}
+
+/* 當加上 .active 時顯示 */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 白底的表格內容方塊 */
+.modal-box {
+    background: #fff;
+    color: #333;
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    
+    /* 配合之前的概念：預設先縮小並往下移一點點 */
+    transform: scale(0.8) translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 這行會製造出一個微微「彈跳」的高級感 */
+}
+
+/* 當外層亮起時，中間的方塊彈回原位並變回 100% 大小 */
+.modal-overlay.active .modal-box {
+    transform: scale(1) translateY(0);
+}
+
+/* 右上角 X 按鈕 */
+.modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none; border: none;
+    font-size: 2rem; color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.modal-close:hover { color: #333; }
+
+/* 表格內文與輸入框樣式 */
+.modal-box h2 { font-family: 'Playfair Display', serif; margin-bottom: 10px; color: #123026; }
+.modal-box p { font-size: 0.9rem; color: #666; margin-bottom: 25px; line-height: 1.5; }
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: #444; }
+.form-group input, .form-group select {
+    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; outline: none;
+}
+.form-group input:focus { border-color: var(--primary-orange); }
+
+/* 表格提交按鈕 */
+.btn-submit {
+    width: 100%; background: var(--primary-orange); color: #fff; border: none;
+    padding: 14px; border-radius: 30px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+.btn-submit:hover { background: #d47d33; transform: scale(1.02); }
+
+
+/* ==========================================
+   升級版：OUR MISSION 介紹區域（加上淡淡背景圖與遮罩）
+   ========================================== */
+.mission-container {
+    width: 100%;
+    min-height: 100vh; /* 佔滿一整螢幕高度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    
+    /* 🛠️ 核心設定：讓背景圖鋪滿且不變形 */
+    background-size: cover;
+    background-position: center;
+    position: relative; /* 為了讓裡面的深色遮罩能夠精準重疊 */
+}
+
+/* 🛠️ 核心設定：為每一頁加上一層「淡淡的深色遮罩」 */
+.mission-container::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(13, 32, 24, 0.6); /* 85% 透明度的深綠色，讓原圖隱隱約約透出來 */
+    z-index: 1; /* 遮罩在圖片上面 */
+}
+
+/* 確保文字內容浮在遮罩最上方，不會被遮住 */
+.mission-content {
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    z-index: 2; /* z-index 設為 2 就能壓在遮罩上面 */
+}
+
+/* 🛠️ 為 4 個不同頁面分別指定專屬的高清背景圖（這裡你可以隨時換成自己的圖網址） */
+#mission-section {
+    background-image: url('https://images.pexels.com/photos/4577555/pexels-photo-4577555.jpeg'); /* 獅子大草原背景 */
+}
+
+#species-section {
+    background-image: url('https://p3-sdbk2-media.byteimg.com/tos-cn-i-xv4ileqgde/3c8fbd9c3a624965a9d1ae088859c0c3~tplv-xv4ileqgde-image.image'); /* 獵豹森林叢林背景 */
+}
+
+#marine-section {
+    background-image: url('https://i.abcnewsfe.com/a/e41c41d5-75a5-4fe7-beee-ae08f2b2e1d8/humpback-whale-02-gty-jef-250609_1749484187409_hpEmbed_3x2.jpg'); /* 深海海浪背景 */
+}
+
+#avian-section {
+    background-image: url('https://i.redd.it/some-birds-from-tokyo-port-wild-bird-park-v0-ydvtp36a8esg1.jpg?width=6960&format=pjpg&auto=webp&s=b9a47627045165dd5d115f1461f5c6e39b470e74'); /* 飛鳥山脈天空背景 */
+}
+
+/* 數據小卡片與文字樣式保持不變 */
+.mission-tag {
+    color: var(--primary-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.mission-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.mission-text {
+    color: #b0c0b8;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.stat-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--primary-orange);
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   新增：右下角固定浮動的「回到頂部」按鈕
+   ========================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px; 
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-orange); 
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 90; 
+    
+    /* 🛠️ 【核心修改】：預設完全隱形，並加上淡入淡出動畫速度 */
+    opacity: 0;
+    visibility: hidden;
+    transition: background 0.3s, transform 0.2s, opacity 0.4s ease, visibility 0.4s;
+}
+
+/* 🛠️ 【新加入】：當 JavaScript 幫按鈕加上 .show 時，按鈕才會優雅浮現 */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 之前學會的 Hover 放大效果保持不變 */
+.back-to-top:hover {
+    background-color: #d47d33; 
+    transform: scale(1.1); 
+}

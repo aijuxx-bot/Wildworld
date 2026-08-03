@@ -1,0 +1,166 @@
+/* ==========================================
+   About 頁面專屬：不對稱故事牆與專家團隊卡片 CSS 樣式
+   ========================================== */
+
+/* ==========================================
+   主頁面大背景升級：加上全站一體的淡淡森林圖與遮罩
+   ========================================== */
+.about-main {
+    min-height: 100vh;
+    padding: 140px 50px 100px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    
+    /* 🛠️ 核心修改：在背景圖上方疊加 88% 的深色濾鏡，讓大背景呈現全站統一的暗夜森林質感 */
+    background: linear-gradient(rgba(10, 23, 18, 0.88), rgba(10, 23, 18, 0.68)), 
+                url('https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/04/06160320/car_2615495c.jpeg'); 
+                
+    /* 🛠️ 核心設定：確保大背景圖鋪滿不變形，且上下捲動時背景固定不動（視差滾動效果） */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* 視差滾動效果：文字和卡片在動，背景森林固定不动，極高級！ */
+}
+
+/* 2. 招牌小藍標樣式 */
+.about-sub {
+    color: #6382f7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   🛠️ 區塊 1：雙欄不對稱故事牆佈局 (Story Section)
+   ========================================== */
+.about-story-section {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
+    gap: 60px; /* 圖片與文字之間的精緻留白 */
+}
+
+/* 左側：電影感團隊工作大圖 */
+.story-image {
+    flex: 1; /* 佔據 50% 寬度 */
+    height: 500px;
+    border-radius: 24px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* 右側：優雅創辦故事文字盒 */
+.story-text-box {
+    flex: 1; /* 佔據 50% 寬度 */
+    text-align: left;
+}
+
+.story-text-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.story-p {
+    color: #b0c0b8;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.story-text-box em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--primary-orange); /* 亮橘色斜體字，遙相呼應首頁風格 */
+    font-weight: 600;
+}
+
+/* ==========================================
+   🛠️ 區塊 2：核心團隊網格佈局 (Our Team)
+   ========================================== */
+.team-section {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.team-header {
+    margin-bottom: 60px;
+}
+
+.team-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #fff;
+}
+
+/* 團隊 Grid 網格佈局（一排 3 列） */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+/* 單張專家成員卡片（融入低調暗色系與毛玻璃邊框） */
+.team-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s, background 0.4s;
+    cursor: pointer;
+}
+
+/* 正圓形高清專家頭像 */
+.member-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%; /* 死死鎖定正圓形 */
+    background-size: cover;
+    background-position: center;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
+    transition: transform 0.4s ease, border-color 0.4s;
+}
+
+/* 名字與職稱 */
+.member-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.member-info span {
+    color: var(--primary-orange); /* 職稱使用招牌橘色 */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   ⚡ 團隊卡片 Hover 互動特效 ⚡
+   ========================================== */
+.team-card:hover {
+    transform: translateY(-8px); /* 1. 卡片整體微微上浮 */
+    border-color: rgba(229, 142, 69, 0.3); /* 2. 邊框亮起淡淡橘光 */
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.team-card:hover .member-img {
+    transform: scale(1.05); /* 3. 滑鼠移入時，正圓形頭像會微微放大 */
+    border-color: var(--primary-orange); /* 4. 頭像外圈變成亮橘色 */
+}

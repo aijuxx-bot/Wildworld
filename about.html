@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildworld - About Our Mission</title>
+    <!-- 引入相同的字體 -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- 共用原本的 style.css，並加入此頁專屬的 about.css -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+    <!-- 頂部選單（五頁完全無縫切換） -->
+    <header>
+        <div class="logo">WILDWORLD</div>
+        <nav>
+            <a href="index.html">Explore</a>
+            <a href="habitats.html">Habitats</a>
+            <a href="conservation.html">Conservation</a>
+            <a href="adopt.html">Adopt</a>
+            <!-- 目前身處 About 頁面，所以把 active 貼在牠身上 -->
+            <a href="about.html" class="active">About</a>
+        </nav>
+        <a href="#" class="btn-donate">DONATE</a>
+    </header>
+
+    <!-- 關於我們主內容區域 -->
+    <main class="about-main">
+        
+        <!-- 🛠️ 區塊 1：雙欄雜誌風故事牆 (Story Section) -->
+        <section class="about-story-section">
+            <div class="story-image" style="background-image: url('https://www.nature.org/content/dam/tnc/nature/en/photos/g/i/giraffe-top-10.jpg');">
+                <!-- 團隊在森林/野外工作的高清圖 -->
+            </div>
+            <div class="story-text-box">
+                <p class="about-sub">Who We Are</p>
+                <h2>Voices for the Voiceless</h2>
+                <p class="story-p">
+                    Founded in 2020, Wildworld began with a simple yet powerful conviction: <em>Every animal deserves to be known.</em> What started as a small team of passionate field biologists in Kenya has now grown into a global coalition of scientists, conservationists, and everyday guardians.
+                </p>
+                <p class="story-p">
+                    We don't just monitor wildlife; we actively protect them. Through satellite telemetry, habitat restoration, and local community empowerment, we build permanent shields around earth's most vulnerable creatures.
+                </p>
+            </div>
+        </section>
+
+        <!-- 🛠️ 區塊 2：核心團隊網格 (Our Team) -->
+        <section class="team-section">
+            <div class="team-header">
+                <p class="about-sub">The Experts</p>
+                <h2>Meet Our Guardians</h2>
+            </div>
+            <div class="team-grid">
+                <!-- 團隊成員 1 -->
+                <div class="team-card">
+                    <div class="member-img" style="background-image: url('https://unsplash.com');"></div>
+                    <div class="member-info">
+                        <h3>Dr. Elena Rostova</h3>
+                        <span>Chief Wildlife Biologist</span>
+                    </div>
+                </div>
+                <!-- 團隊成員 2 -->
+                <div class="team-card">
+                    <div class="member-img" style="background-image: url('https://unsplash.com');"></div>
+                    <div class="member-info">
+                        <h3>Marcus Vance</h3>
+                        <span>Anti-Poaching Field Director</span>
+                    </div>
+                </div>
+                <!-- 團隊成員 3 -->
+                <div class="team-card">
+                    <div class="member-img" style="background-image: url('https://unsplash.com');"></div>
+                    <div class="member-info">
+                        <h3>Sarah Jenkins</h3>
+                        <span>Marine Conservation Lead</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 彈出式認養/捐款表格容器（共用骨架） -->
+    <div class="modal-overlay" id="donateModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeBtn">&times;</button>
+            <form id="modalForm">
+                <h2>Support Wildlife Conservation</h2>
+                <p>Every contribution goes directly toward rescuing injured animals and restoring their natural habitats.</p>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="e.g., John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Support Option</label>
+                    <select>
+                        <option>Monthly Adoption ($15/month)</option>
+                        <option>One-time Donation</option>
+                        <option>Become a Sanctuary Volunteer</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Support Now</button>
+            </form>
+            <div id="thankYouState" style="display: none; text-align: center; padding: 20px 0;">
+                <div style="font-size: 4rem; color: #123026; margin-bottom: 15px;">✓</div>
+                <h2 style="color: #123026; margin-bottom: 10px;">Thank You!</h2>
+                <p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                    Your incredible support has been received.<br>
+                    Together, we are making a wild difference.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入外部 JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
