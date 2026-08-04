@@ -634,4 +634,18 @@ nav a:hover {
     transform: scale(1.1); 
 }
 
+/* ==========================================
+   🎯【全站分頁大標題：同步換回 600 半粗體】
+   ========================================== */
+#habitats-page h1,
+#conservation-page h1,
+#adopt-page h1,
+#about-page h2,    
+.adopt-header h1 {
+    /* 🛠️ 核心對齊：名字必須精準叫我們在頂部註冊的雲端代號！ */
+    font-family: 'Playfair600Local', serif !important; 
+    font-weight: 600 !important; 
+    font-size: 3.5rem !important; 
+}
+
 
