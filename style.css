@@ -530,6 +530,7 @@ nav a:hover {
 }
 
 /* 確保文字內容浮在遮罩最上方，不會被遮住 */
+
 .mission-content {
     max-width: 800px;
     text-align: center;
@@ -556,6 +557,7 @@ nav a:hover {
 
 /* 數據小卡片與文字樣式保持不變 */
 .mission-tag {
+
     color: var(--primary-orange);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -565,7 +567,7 @@ nav a:hover {
 }
 
 .mission-content h2 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
     color: #fff;
     line-height: 1.2;
