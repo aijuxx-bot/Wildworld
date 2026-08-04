@@ -632,16 +632,22 @@ nav a:hover {
     transform: scale(1.1); 
 }
 
-/* 檢查最底部是否長這樣，如果不是請補上： */
-.slide-content *, 
-.slide-content span, 
-.slide-content div,
+/* ==========================================
+   🎯【全首頁大標題精準放大特權令（絕不走位版）】
+   ========================================== */
 .slide-content h1,
-.title {
-    font-family: 'MyCustomFont', serif !important; /* 🌟 這裡的名字必須和最頂部的 MyCustomFont 一模一樣！ */
+.slide-content h1 span,
+.slide-content .title {
+    font-family: 'MyCustomFont', serif !important;
+    
+    /* 🛠️ 核心修改：只命令大標題放大！細字和按鈕放行不加干涉 */
+    font-size: 5.5rem !important; 
+    font-weight: 700 !important; 
 }
 
-.slide-content em {
+.slide-content h1 em,
+.slide-content .title em {
     font-family: 'MyCustomFont', serif !important;
     font-style: italic !important;
+    /* 🌟 橘色斜體字（Deserves）的大小會全自動跟著 h1 一起變，這裡不需要重複寫大小 */
 }
