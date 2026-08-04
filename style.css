@@ -1,11 +1,11 @@
 /* ==========================================
-   🌐【WILDWORLD 全球雲端高速 CDN 字型解鎖引擎 - 100% 完整路徑正確版】
-   帶有完整後台檔案路徑，100% 破除線上安全鎖，全球設備一秒雙通車！
+   🌐【WILDWORLD 全球雲端高速 CDN 字型解鎖引擎】
+   直接使用 Google 官方最高級 woff2 網頁壓縮字型連結，
+   100% 破除線上安全鎖，全球設備、本機、線上同步一秒通車！
    ========================================= */
 /* 註冊直立版的 600 SemiBold */
 @font-face {
     font-family: 'Playfair600Local';
-    /* ✅ 核心修正 1：換上 Google 官方直立 600 的完整檔案路徑，不能有任何縮寫！ */
     src: url('https://gstatic.com') format('woff2'); 
     font-weight: 600;
     font-style: normal;
@@ -14,10 +14,21 @@
 /* 註冊斜體版的 600 SemiBold Italic */
 @font-face {
     font-family: 'Playfair600ItalicLocal';
-    /* ✅ 核心修正 2：換上 Google 官方斜體 600 的完整檔案路徑，不能有任何縮寫！ */
     src: url('https://gstatic.com') format('woff2'); 
     font-weight: 600;
     font-style: italic;
+}
+
+/* ==========================================
+   👑【全站萬能通配符】：全網頁所有字體一炮過無差別大解放！
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    /* 🎯 萬能核心命令：管你甚麼標籤、甚麼分頁、通通無條件換成 Playfair Display！ */
+    font-family: 'Playfair Display', serif !important; 
 }
 
 
@@ -209,7 +220,7 @@ nav a:hover {
 }
 
 .title em {
-    font-family: 'PlayfairDisplay-SemiBold', serif;
+    font-family: 'Playfair Display', serif;
     font-style: italic;
     color: var(--primary-orange);
     font-weight: 700;
@@ -233,10 +244,10 @@ nav a:hover {
    🛠️ 核心修正 2：這就是「正下方」！直接貼在這裡幫 h1 標籤強力補強
    ========================================== */
 .slide-content h1 {
-    font-family: 'PlayfairDisplay-SemiBold', serif !important;
+    font-family: 'Playfair Display', serif !important;
 }
 .slide-content h1 em {
-    font-family: 'PlayfairDisplay-SemiBold', serif !important;
+    font-family: 'Playfair Display', serif !important;
     font-style: italic;
 }
 
@@ -618,15 +629,15 @@ nav a:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     z-index: 90; 
     
-    /* 🛠️ 【核心修改】：預設完全隱形，並加上淡入淡出動畫速度 */
+    /* 預設完全隱形，並加上淡入淡出動畫速度 */
     opacity: 0;
     visibility: hidden;
     transition: background 0.3s, transform 0.2s, opacity 0.4s ease, visibility 0.4s;
 }
 
-/* 🛠️ 【新加入】：當 JavaScript 幫按鈕加上 .show 時，按鈕才會優雅浮現 */
+/* ✅ 終極修正：把那個害死人的 v 徹底刪除！回復最工整的語法 */
 .back-to-top.show {
-    opacity: 1;v
+    opacity: 1;
     visibility: visible;
 }
 
