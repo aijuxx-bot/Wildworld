@@ -670,10 +670,3 @@ nav a:hover {
     font-weight: 600 !important; 
     font-size: 3.5rem !important; 
 }
-
-/* ==========================================
-   🎯【全站細字、按鈕與選單：換上人文黑體 Lato】
-   ========================================== */
-body, nav a, .btn-donate, .btn-submit, .btn-filter, .description, p, span {
-    font-family: 'Lato', 'Plus Jakarta Sans', sans-serif !important; 
-}

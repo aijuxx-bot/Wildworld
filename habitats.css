@@ -153,12 +153,9 @@
     transition-delay: 0.1s; /* 稍微延遲 0.1 秒，讓動畫更有層次感 */
 }
 
-/* ==========================================
-   🎯【最終最高特權令】：精準呼喚頂部的雲端代號，砸碎大鎖！
-   ========================================== */
 .habitats-header h1, 
 #habitats-page h1 {
-    font-family: 'Playfair600Local', serif !important; 
+    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
     font-size: 3.5rem !important; 
     font-weight: 600 !important;
 }
