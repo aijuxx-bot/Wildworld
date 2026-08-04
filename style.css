@@ -1,26 +1,3 @@
-/* ==========================================
-   🌐【WILDWORLD 全球雲端高速 CDN 字型解鎖引擎】
-   直接使用 Google 官方 Woff2 壓縮字型白名單網址，
-   100% 破除 GitHub 線上安全鎖，全球設備一秒通車！
-   ========================================= */
-
-/* 🎯 註冊直立版的 Playfair Display 600 SemiBold */
-@font-face {
-    font-family: 'Playfair600Local';
-    src: url('https://fonts.googleapis.com') format('woff2'); 
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* 🎯 註冊斜體版的 Playfair Display 600 SemiBold Italic */
-@font-face {
-    font-family: 'Playfair600Local'; /* 💡 保持同一個家族名稱，用 font-style 分流最標準 */
-    src: url('https://fonts.gstatic.com') format('woff2'); 
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
 
 
 
