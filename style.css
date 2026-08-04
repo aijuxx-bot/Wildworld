@@ -1,6 +1,4 @@
 
-
-
 /* 全網頁解鎖：所有內嵌錨點跳轉一律變成平滑滾動 */
 html {
     scroll-behavior: smooth;
@@ -205,18 +203,6 @@ nav a:hover {
     margin-right: auto;
     opacity: 0; /* 新增這行：動畫開始前先隱藏 */
 
-}
-
-
-/* ==========================================
-   🛠️ 核心修正 2：這就是「正下方」！直接貼在這裡幫 h1 標籤強力補強
-   ========================================== */
-.slide-content h1 {
-    font-family: 'Playfair Display', serif !important;
-}
-.slide-content h1 em {
-    font-family: 'Playfair Display', serif !important;
-    font-style: italic;
 }
 
 /* 按鈕樣式 */
