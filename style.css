@@ -1,6 +1,8 @@
 /* 全網頁解鎖：所有內嵌錨點跳轉一律變成平滑滾動 */
 html {
     scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* 🛠️ 新增：針對舊版 IE/Edge 隱藏滾動條 */
+    scrollbar-width: none;     /* 🛠️ 新增：針對 Firefox 隱藏滾動條 */
 }
 
 :root {
@@ -18,11 +20,18 @@ html {
 body {
     background-color: #0d2018;
     color: #fff;
-    
-    /* 🛠️ 【終極封印】：強制將整個網頁高度鎖死在一個螢幕內， */
-    /* 徹底閹割所有滑鼠中鍵、鍵盤、拉動滾動條的手動可能性！ */
-    height: 100vh;
-    overflow: hidden; 
+    overflow-x: hidden; /* 🛠️ 恢復這個：只防止左右搖晃跑版，不限制上下長度 */
+    -ms-overflow-style: none;  /* 🛠️ 新增：針對舊版 IE/Edge 隱藏滾動條 */
+    scrollbar-width: none;     /* 🛠️ 新增：針對 Firefox 隱藏滾動條 */
+}
+
+
+/* ==========================================
+   🛠️ 全新單獨補在下方：針對 Chrome 和現代 Edge 徹底蒸發最外層滾動條
+   ========================================== */
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+    display: none !important; /* 讓最右邊可以用滑鼠抓、拉動的灰色 Bar 完全隱形消失！ */
 }
 
 /* 導航欄 Navigation */
@@ -84,11 +93,23 @@ nav a:hover {
 
 
 /* 輪播主區域 Hero Section */
+/* ==========================================
+   輪播主區域 Hero Section（已升級：徹底蒸發首頁滾動條，100% 物理防拉）
+   ========================================== */
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow: hidden; /* 🛠️ 確保這裡有加上 overflow: hidden！ */
+    height: 100vh; /* 釘死首頁剛好一個螢幕高 */
+    overflow: hidden; /* 掛上首頁大鎖 */
+
+    /* 🛠️ 【全新加入】：這三行是現代網頁強行將首頁右側滾動條「完全蒸發」的終極絕招 */
+    -ms-overflow-style: none;  /* 針對舊版 IE 和 Edge 瀏覽器隱藏 */
+    scrollbar-width: none;     /* 針對 Firefox 瀏覽器隱藏 */
+}
+
+/* 🛠️ 【全新加入】：針對 Chrome, Safari, Opera 和現代 Edge 瀏覽器，強制把首頁的 Scrollbar 變不見 */
+.hero::-webkit-scrollbar {
+    display: none; /* 讓最右邊那條可以用滑鼠按住、拉動的灰色 Bar 完全隱形消失！ */
 }
 
 /* 投影片 Slide */
@@ -578,3 +599,4 @@ nav a:hover {
     background-color: #d47d33; 
     transform: scale(1.1); 
 }
+

@@ -61,19 +61,32 @@ startTimer();
 
 
 // ==========================================
-// 3. 🧠【智慧型鋼鐵封印】：只鎖死 Explore 首頁，其餘分頁放行自由滾動
+// 3. 🧠【終極智慧鋼鐵封印 + 中鍵完美防禦】
 // ==========================================
 function preventScroll(e) {
-    if (window.location.href.includes('habitats.html') || 
-        window.location.href.includes('conservation.html') ||
-        window.location.href.includes('adopt.html')) {
+    // 🛠️ 智慧身分證放行：如果在分頁，直接放行，Adopt、About 同時恢復自由滾動
+    if (document.getElementById('conservation-page') || 
+        document.getElementById('habitats-page') || 
+        document.getElementById('adopt-page') ||
+        document.getElementById('about-page')) {
         return; 
     }
-    e.preventDefault(); 
+    
+    // 如果人在 Explore 首頁：
+    // 1. 沒收滑鼠滾輪轉動 (wheel) 訊號
+    // 2. 沒收手機劃螢幕 (touchmove) 訊號
+    // 3. 沒收滑鼠中鍵滾輪點擊 (mousedown 且 e.button === 1)，徹底閹割中鍵自動滾動圈！
+    if (e.type === 'wheel' || e.type === 'touchmove' || (e.type === 'mousedown' && e.button === 1)) {
+        e.preventDefault(); 
+        return false;
+    }
 }
 
+// 24小時無間斷監控：新增 mousedown 監聽，精準捕捉滑鼠中鍵點擊
 window.addEventListener('wheel', preventScroll, { passive: false });
 window.addEventListener('touchmove', preventScroll, { passive: false });
+window.addEventListener('mousedown', preventScroll, { passive: false });
+
 
 
 // ==========================================
