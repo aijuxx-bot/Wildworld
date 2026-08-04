@@ -39,9 +39,9 @@
 
 .conservation-header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-size: 4rem;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .conservation-header .intro-text {
@@ -167,8 +167,9 @@
 
 .timeline-header h1, 
 #conservation-page h1 {
-    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
-    font-size: 3.5rem !important; 
-    font-weight: 600 !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 15px;
 }
 

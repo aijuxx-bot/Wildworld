@@ -3,21 +3,25 @@
    直接使用 Google 官方 Woff2 壓縮字型白名單網址，
    100% 破除 GitHub 線上安全鎖，全球設備一秒通車！
    ========================================= */
-/* 註冊直立版的 600 SemiBold */
+
+/* 🎯 註冊直立版的 Playfair Display 600 SemiBold */
 @font-face {
     font-family: 'Playfair600Local';
-    src: url('https://gstatic.com') format('woff2'); /* 🎯 直接使用 Google 官方直立 600 高速連結 */
-    font-weight: 600;
+    src: url('https://fonts.googleapis.com') format('woff2'); 
+    font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
-/* 註冊斜體版的 600 SemiBold Italic */
+/* 🎯 註冊斜體版的 Playfair Display 600 SemiBold Italic */
 @font-face {
-    font-family: 'Playfair600ItalicLocal';
-    src: url('https://gstatic.com') format('woff2'); /* 🎯 直接使用 Google 官方斜體 600 高速連結 */
-    font-weight: 600;
+    font-family: 'Playfair600Local'; /* 💡 保持同一個家族名稱，用 font-style 分流最標準 */
+    src: url('https://fonts.gstatic.com') format('woff2'); 
+    font-weight: 700;
     font-style: italic;
+    font-display: swap;
 }
+
 
 
 /* 全網頁解鎖：所有內嵌錨點跳轉一律變成平滑滾動 */
@@ -633,19 +637,4 @@ nav a:hover {
     background-color: #d47d33; 
     transform: scale(1.1); 
 }
-
-/* ==========================================
-   🎯【全站分頁大標題：同步換回 600 半粗體】
-   ========================================== */
-#habitats-page h1,
-#conservation-page h1,
-#adopt-page h1,
-#about-page h2,    
-.adopt-header h1 {
-    /* 🛠️ 核心對齊：名字必須精準叫我們在頂部註冊的雲端代號！ */
-    font-family: 'Playfair600Local', serif !important; 
-    font-weight: 600 !important; 
-    font-size: 3.5rem !important; 
-}
-
 

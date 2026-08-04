@@ -148,7 +148,9 @@
    ========================================== */
 .habitats-header h1, 
 #habitats-page h1 {
-    font-family: 'Playfair600Local', serif !important; 
-    font-size: 3.5rem !important; 
-    font-weight: 600 !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 15px;
+
 }

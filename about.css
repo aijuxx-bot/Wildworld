@@ -73,6 +73,7 @@
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 20px;
+
 }
 
 .story-text-box em {
@@ -165,10 +166,20 @@
     border-color: var(--primary-orange); /* 4. 頭像外圈變成亮橘色 */
 }
 
-.team-header h2, 
-.story-text-box h2,
-#about-page h2 {
-    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
-    font-size: 3.2rem !important; 
-    font-weight: 600 !important;
+/* ==========================================
+   🚨【緊急修復】：拯救被白色覆蓋的 Donate Modal 文字
+   ========================================== */
+.modal-box h2 {
+    color: #123026 !important;       /* 🎯 強制把標題轉回深綠色，配合感謝畫面風格 */
+    font-size: 2rem !important;        /* 調整合適的彈出視窗標題大小，避免變成 4rem 太大跑版 */
+    font-family: 'Playfair Display', serif !important;
+    margin-bottom: 15px !important;
+}
+
+.modal-box p {
+    color: #666666 !important;       /* 確保內文敘述是清晰的深灰色 */
+}
+
+.modal-box label {
+    color: #333333 !important;       /* 確保表單欄位名稱（如 Full Name）是深色 */
 }
