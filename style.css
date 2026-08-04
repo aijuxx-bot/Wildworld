@@ -635,10 +635,11 @@ nav a:hover {
     background-color: #d47d33; 
     transform: scale(1.1); 
 }
+
 /* ==========================================
    🎯【終極大對齊：全首頁大標題精準放大 5.5rem + 絕不走位版】
    ========================================== */
-/* 1. 呼喚直立代號：鎖定所有標題白字，通通套用 600 直立大氣線條 */
+/* 1. 鎖定所有標題白字，通通套用 600 直立大氣線條 */
 .slide-content h1,
 .slide-content h1 span,
 .slide-content .title {
@@ -648,25 +649,31 @@ nav a:hover {
     font-style: normal !important; 
 }
 
-/* 2. 呼喚斜體代號：精準鎖定橘色字 em（即是那隻 Deserves） */
+/* 2. 🛠️ 核心救星：精準鎖定橘色字 em（即是那隻 Deserves），強制套用 600 Italic 專屬變形字母線條！ */
 .slide-content h1 em,
 .slide-content .title em {
     font-family: 'Playfair600ItalicLocal', serif !important; 
     font-size: 5.5rem !important; 
     font-weight: 600 !important;  
-    font-style: italic !important; /* 🌟 完美展現 600 SemiBold Italic 原生優雅流暢斜體！ */
+    font-style: italic !important; 
 }
 
 /* ==========================================
-   🎯【全站分頁大標題：同步換回 600 半粗體】
+   🎯【全站分頁大標題：一鍵同步換回正宗 Playfair Display】
    ========================================== */
 #habitats-page h1,
 #conservation-page h1,
 #adopt-page h1,
 #about-page h2,    
 .adopt-header h1 {
-    /* 🛠️ 核心對齊：名字必須精準叫我們在頂部註冊的雲端代號！ */
     font-family: 'Playfair600Local', serif !important; 
     font-weight: 600 !important; 
     font-size: 3.5rem !important; 
+}
+
+/* ==========================================
+   🎯【全站細字、按鈕與選單：換上人文黑體 Lato】
+   ========================================== */
+body, nav a, .btn-donate, .btn-submit, .btn-filter, .description, p, span {
+    font-family: 'Lato', 'Plus Jakarta Sans', sans-serif !important; 
 }
