@@ -154,3 +154,11 @@
     opacity: 1; /* 3. 原本看不清的內文和按鈕「優雅淡入」現身 */
     transition-delay: 0.1s; /* 稍微延遲 0.1 秒，讓動畫更有層次感 */
 }
+
+.habitats-header h1, 
+#habitats-page h1 {
+    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
+    font-size: 3.5rem !important; 
+    font-weight: 600 !important;
+}
+

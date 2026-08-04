@@ -164,3 +164,11 @@
     transform: scale(1.3); /* 中央的小圓點會微微放大 */
     background-color: var(--primary-orange); /* 圓點中心變成實心橘色 */
 }
+
+.timeline-header h1, 
+#conservation-page h1 {
+    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
+    font-size: 3.5rem !important; 
+    font-weight: 600 !important;
+}
+

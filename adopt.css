@@ -257,3 +257,10 @@
     transform: scale(1.1);
 }
 
+.adopt-header h1, 
+#adopt-page h1 {
+    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
+    font-size: 3.5rem !important; 
+    font-weight: 600 !important;
+}
+

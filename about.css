@@ -164,3 +164,11 @@
     transform: scale(1.05); /* 3. 滑鼠移入時，正圓形頭像會微微放大 */
     border-color: var(--primary-orange); /* 4. 頭像外圈變成亮橘色 */
 }
+
+.team-header h2, 
+.story-text-box h2,
+#about-page h2 {
+    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
+    font-size: 3.2rem !important; 
+    font-weight: 600 !important;
+}
