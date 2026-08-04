@@ -4,7 +4,8 @@
    ========================================= */
 @font-face {
     font-family: 'Playfair600Local';
-    src: url('playfair600.ttf') format('truetype'); /* 🎯 直接讀取同目錄下的實體檔案！ */
+    /* 🎯 核心修正：將原本的本地 .ttf 換成以下這串官方雲端高速 woff2 連結 */
+    src: url('https://gstatic.com') format('woff2'); 
     font-weight: 600;
     font-style: normal;
 }
