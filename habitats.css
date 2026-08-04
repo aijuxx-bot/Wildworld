@@ -29,10 +29,17 @@
     margin-bottom: 15px;
 }
 
+/* 🛠️ 【順序歸位】：讓簡介文字緊緊貼在小標題下面，排版工整不跑位 */
+.habitats-header .intro-text {
+    color: #b0c0b8;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
 /* ==========================================
    🎯【棲息地分頁大標題：精準同步換回雲端 600 半粗體】
+   （移到這段結構的最底部，乾淨整齊，大廠風範！）
    ========================================== */
-/* 必須精準點名 habitats 專屬的名字，字型才能百分之百大解放！ */
 .habitats-header h1, 
 #habitats-page h1 {
     font-family: 'Playfair600Local', serif !important; /* 🎯 換上我們在 style.css 頂部註冊的雲端代號！ */
@@ -40,11 +47,6 @@
     font-weight: 600 !important; /* 🌟 鎖死 600 SemiBold */
 }
 
-.habitats-header .intro-text {
-    color: #b0c0b8;
-    font-size: 1.05rem;
-    line-height: 1.6;
-}
 
 /* 3. 🔥 大魔王：CSS Grid 網格佈局 */
 .habitats-grid {
