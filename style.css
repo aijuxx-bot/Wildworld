@@ -1,4 +1,21 @@
+/* ==========================================
+   🧲【純本機物理 600 半粗體 TTF 雙核心灌入外掛】
+   ========================================= */
+/* 拿 playfair600.ttf 實體檔，註冊一個叫 Playfair600Local 的網頁代號 */
+@font-face {
+    font-family: 'Playfair600Local';
+    src: url('playfair600.ttf') format('truetype'); 
+    font-weight: 600;
+    font-style: normal;
+}
 
+/* 拿 playfair600italic.ttf 實體檔，註冊一個叫 Playfair600ItalicLocal 的網頁代號 */
+@font-face {
+    font-family: 'Playfair600ItalicLocal';
+    src: url('playfair600italic.ttf') format('truetype'); 
+    font-weight: 600;
+    font-style: italic;
+}
 
 
 /* 全網頁解鎖：所有內嵌錨點跳轉一律變成平滑滾動 */
@@ -178,7 +195,7 @@ nav a:hover {
 }
 
 .title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'PlayfairDisplay', serif;
     font-size: 4.8rem;
     line-height: 1.15;
     margin-bottom: 25px;
@@ -189,7 +206,7 @@ nav a:hover {
 }
 
 .title em {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'PlayfairDisplay-SemiBold', serif;
     font-style: italic;
     color: var(--primary-orange);
     font-weight: 700;
@@ -213,10 +230,10 @@ nav a:hover {
    🛠️ 核心修正 2：這就是「正下方」！直接貼在這裡幫 h1 標籤強力補強
    ========================================== */
 .slide-content h1 {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'PlayfairDisplay-SemiBold', serif !important;
 }
 .slide-content h1 em {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'PlayfairDisplay-SemiBold', serif !important;
     font-style: italic;
 }
 
@@ -615,25 +632,44 @@ nav a:hover {
     background-color: #d47d33; 
     transform: scale(1.1); 
 }
-
 /* ==========================================
-   🎯【全首頁大標題精準放大特權令（絕不走位版）】
+   🎯【終極大對齊：全首頁大標題精準放大 5.5rem + 絕不走位版】
    ========================================== */
+/* 1. 呼喚直立代號：鎖定所有標題白字，通通套用 600 直立大氣線條 */
 .slide-content h1,
 .slide-content h1 span,
 .slide-content .title {
-    font-family: 'MyCustomFont', serif !important;
-    
-    /* 🛠️ 核心修改：只命令大標題放大！細字和按鈕放行不加干涉 */
+    font-family: 'Playfair600Local', serif !important; 
     font-size: 5.5rem !important; 
-    font-weight: 700 !important; 
-
+    font-weight: 600 !important; 
+    font-style: normal !important; 
 }
 
+/* 2. 呼喚斜體代號：精準鎖定橘色字 em（即是那隻 Deserves） */
 .slide-content h1 em,
 .slide-content .title em {
-    font-family: 'MyCustomFont', serif !important;
-    font-style: italic !important;
-    /* 🌟 橘色斜體字（Deserves）的大小會全自動跟著 h1 一起變，這裡不需要重複寫大小 */
+    font-family: 'Playfair600ItalicLocal', serif !important; 
+    font-size: 5.5rem !important; 
+    font-weight: 600 !important;  
+    font-style: italic !important; /* 🌟 完美展現 600 SemiBold Italic 原生優雅流暢斜體！ */
 }
 
+/* ==========================================
+   🎯【全站分頁大標題：同步換回本地 600 半粗體】
+   ========================================== */
+#habitats-page h1,
+#conservation-page h1,
+#adopt-page h1,
+#about-page h2,    
+.adopt-header h1 {
+    font-family: 'Playfair600Local', serif !important; 
+    font-weight: 600 !important; 
+    font-size: 3.5rem !important; 
+}
+
+/* ==========================================
+   🎯【全站細字、按鈕與選單：換上人文黑體 Lato】
+   ========================================== */
+body, nav a, .btn-donate, .btn-submit, .btn-filter, .description, p, span {
+    font-family: 'Lato', 'Plus Jakarta Sans', sans-serif !important; 
+}
