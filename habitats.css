@@ -1,4 +1,15 @@
 /* ==========================================
+   🌐【WILDWORLD 雲端高速 CDN 字型解鎖引擎 - 棲息地專屬版】
+   （這一道開路先鋒必須放在最頂部，這頁的 h1 才能百分之百大解放！）
+   ========================================= */
+@font-face {
+    font-family: 'Playfair600Local';
+    src: url('https://gstatic.com') format('woff2'); 
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* ==========================================
    Habitats 頁面專屬排版與 CSS Grid 網格樣式
    ========================================== */
 
@@ -142,9 +153,12 @@
     transition-delay: 0.1s; /* 稍微延遲 0.1 秒，讓動畫更有層次感 */
 }
 
+/* ==========================================
+   🎯【最終最高特權令】：精準呼喚頂部的雲端代號，砸碎大鎖！
+   ========================================== */
 .habitats-header h1, 
 #habitats-page h1 {
-    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
+    font-family: 'Playfair600Local', serif !important; 
     font-size: 3.5rem !important; 
     font-weight: 600 !important;
 }
