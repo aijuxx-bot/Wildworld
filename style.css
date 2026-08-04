@@ -651,3 +651,21 @@ nav a:hover {
     font-style: italic !important;
     /* 🌟 橘色斜體字（Deserves）的大小會全自動跟著 h1 一起變，這裡不需要重複寫大小 */
 }
+
+/* ==========================================
+   🎯【全站分頁大標題：一鍵同步換上本地新字型】
+   直接點名 4 個分頁的身分證 ID，隔空強制換裝！
+   ========================================== */
+#habitats-page h1,
+#conservation-page h1,
+#adopt-page h1,
+#about-page h2,    /* About 頁面的 Meet Our Guardians 是 h2 */
+.adopt-header h1 {
+    font-family: 'MyCustomFont', serif !important; /* 🌟 換上你的本地高級字型！ */
+    
+    /* 💡 大佬加碼微調：你可以順便在這裡一併控制「分頁」大標題的大小（例如 3.5rem） */
+    /* 分頁的標題通常保持在 3.5rem 左右，視覺比例是最完美的，不會像首頁 5.5rem 那麼誇張 */
+    font-size: 3.5rem !important; 
+    font-weight: 700 !important;
+}
+

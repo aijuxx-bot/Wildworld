@@ -30,8 +30,8 @@
 }
 
 .habitats-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-family: 'MyCustomFont', serif !important; /* 🌟 換上你的本地高級字型！ */
+    font-size: 5rem;
     color: #fff;
     margin-bottom: 20px;
 }
