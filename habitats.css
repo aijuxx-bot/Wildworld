@@ -155,10 +155,14 @@
     transition-delay: 0.1s; /* 稍微延遲 0.1 秒，讓動畫更有層次感 */
 }
 
+/* ==========================================
+   🎯【棲息地分頁大標題：精準同步換回雲端 600 半粗體】
+   ========================================== */
+/* 必須精準點名 habitats 專屬的名字，字型才能百分之百大解放！ */
 .habitats-header h1, 
 #habitats-page h1 {
-    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
+    font-family: 'Playfair600Local', serif !important; /* 🎯 換上我們在 style.css 頂部註冊的雲端代號！ */
     font-size: 3.5rem !important; 
-    font-weight: 600 !important;
+    font-weight: 600 !important; /* 🌟 鎖死 600 SemiBold */
 }
 
