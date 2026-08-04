@@ -1,10 +1,10 @@
 /* ==========================================
-   🌐【WILDWORLD 雲端高速 CDN 字型解鎖引擎 - 棲息地專屬版】
-   （這一道開路先鋒必須放在最頂部，這頁的 h1 才能百分之百大解放！）
+   🧲【純本機物理 600 半粗體 TTF 雙核心灌入外掛 - 棲息地專屬版】
+   直接讀取你電腦資料夾內的本地檔案，100% 破除網絡連結失效問題！
    ========================================= */
 @font-face {
     font-family: 'Playfair600Local';
-    src: url('https://gstatic.com') format('woff2'); 
+    src: url('playfair600.ttf') format('truetype'); /* 🎯 直接讀取同目錄下的實體檔案！ */
     font-weight: 600;
     font-style: normal;
 }
@@ -153,9 +153,12 @@
     transition-delay: 0.1s; /* 稍微延遲 0.1 秒，讓動畫更有層次感 */
 }
 
+/* ==========================================
+   🎯【最終最高特權令】：精準呼喚本地的 TTF 檔案，砸碎大鎖！
+   ========================================== */
 .habitats-header h1, 
 #habitats-page h1 {
-    font-family: 'Playfair600Local', serif !important; /* 🌟 換上雲端新代號！ */
+    font-family: 'Playfair600Local', serif !important; 
     font-size: 3.5rem !important; 
     font-weight: 600 !important;
 }
