@@ -29,11 +29,15 @@
     margin-bottom: 15px;
 }
 
-.habitats-header h1 {
-    font-family: 'MyCustomFont', serif !important; /* 🌟 換上你的本地高級字型！ */
-    font-size: 5rem;
-    color: #fff;
-    margin-bottom: 20px;
+/* ==========================================
+   🎯【棲息地分頁大標題：精準同步換回雲端 600 半粗體】
+   ========================================== */
+/* 必須精準點名 habitats 專屬的名字，字型才能百分之百大解放！ */
+.habitats-header h1, 
+#habitats-page h1 {
+    font-family: 'Playfair600Local', serif !important; /* 🎯 換上我們在 style.css 頂部註冊的雲端代號！ */
+    font-size: 3.5rem !important; 
+    font-weight: 600 !important; /* 🌟 鎖死 600 SemiBold */
 }
 
 .habitats-header .intro-text {
@@ -155,14 +159,4 @@
     transition-delay: 0.1s; /* 稍微延遲 0.1 秒，讓動畫更有層次感 */
 }
 
-/* ==========================================
-   🎯【棲息地分頁大標題：精準同步換回雲端 600 半粗體】
-   ========================================== */
-/* 必須精準點名 habitats 專屬的名字，字型才能百分之百大解放！ */
-.habitats-header h1, 
-#habitats-page h1 {
-    font-family: 'Playfair600Local', serif !important; /* 🎯 換上我們在 style.css 頂部註冊的雲端代號！ */
-    font-size: 3.5rem !important; 
-    font-weight: 600 !important; /* 🌟 鎖死 600 SemiBold */
-}
 
