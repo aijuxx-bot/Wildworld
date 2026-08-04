@@ -161,4 +161,17 @@
     transition-delay: 0.1s; /* 稍微延遲 0.1 秒，讓動畫更有層次感 */
 }
 
+/* ==========================================
+   🎯【全網最霸道：棲息地網頁標題終極無差別超度令】
+   管你上面寫了多少行同名的舊代碼，只要是在這頁出現的 h1，
+   通通在最底下一把火全部燒掉，強制換上正宗雲端 600 半粗體！
+   ========================================== */
+#habitats-page h1,
+.habitats-main h1,
+.habitats-header h1 {
+    font-family: 'Playfair600Local', serif !important; /* 🎯 對齊最高權限雲端新代號 */
+    font-size: 3.5rem !important; 
+    font-weight: 600 !important; /* 🌟 鎖死 600 半粗體 */
+    font-style: normal !important;
+}
 
