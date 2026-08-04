@@ -1,3 +1,25 @@
+/* ==========================================
+   🌐【WILDWORLD 全球雲端高速 CDN 字型解鎖引擎】
+   直接使用 Google 官方 Woff2 壓縮字型白名單網址，
+   100% 破除 GitHub 線上安全鎖，全球設備一秒通車！
+   ========================================= */
+/* 註冊直立版的 600 SemiBold */
+@font-face {
+    font-family: 'Playfair600Local';
+    src: url('https://gstatic.com') format('woff2'); /* 🎯 直接使用 Google 官方直立 600 高速連結 */
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* 註冊斜體版的 600 SemiBold Italic */
+@font-face {
+    font-family: 'Playfair600ItalicLocal';
+    src: url('https://gstatic.com') format('woff2'); /* 🎯 直接使用 Google 官方斜體 600 高速連結 */
+    font-weight: 600;
+    font-style: italic;
+}
+
+
 /* 全網頁解鎖：所有內嵌錨點跳轉一律變成平滑滾動 */
 html {
     scroll-behavior: smooth;
@@ -613,47 +635,3 @@ nav a:hover {
 }
 
 
-/* ==========================================
-   🎯【終極大對齊：全首頁大標題精準放大 5.5rem + 絕不走位版】
-   精準對齊圖 1 骨架裡面的 slide-title 與 amber-text！
-   ========================================== */
-/* 1. 呼喚直立代號：鎖定大標題所有白字，強制套用 600 直立大氣線條 */
-.slide-content .slide-title,
-.slide-content h1 {
-    font-family: 'Playfair600Local', serif !important; 
-    font-size: 5.5rem !important; /* 🌟 這裡控制首頁字體大小（5.5rem / 6rem 隨你喜歡） */
-    font-weight: 600 !important; 
-    font-style: normal !important; 
-}
-
-/* 2. 🛠️ 核心救星：精準鎖定橘色字 em 還有你 HTML 寫的 class="amber-text" */
-/* 強制牠去提取內建完美古典斜體變形線條的雲端 600 Italic 實體數據！ */
-.slide-content .slide-title em,
-.slide-content .slide-title .amber-text,
-.slide-content h1 em {
-    font-family: 'Playfair600ItalicLocal', serif !important; 
-    font-size: 5.5rem !important; /* 🌟 大小與白字保持完美一致 */
-    font-weight: 600 !important;  
-    font-style: italic !important; /* 🌟 完美展現 600 SemiBold Italic 原生優雅流暢斜體！ */
-}
-
-/* ==========================================
-   🎯 Honor Target：精準對齊圖 2、3、4 分頁大標題一鍵換衣服
-   ========================================== */
-/* 隔空點名 4 個分頁的所有 h1 和 about 的 h2 標題，強制同步換裝！ */
-#habitats-page h1, .habitats-header h1,
-#conservation-page h1, .timeline-header h1,
-#adopt-page h1, .adopt-header h1,
-#about-page h2, .team-header h2, .story-text-box h2 {
-    font-family: 'Playfair600Local', serif !important; 
-    font-weight: 600 !important; 
-    font-size: 3.5rem !important; /* 🌟 分頁主標題字體維持黃金大氣的 3.5rem */
-}
-
-/* ==========================================
-   🎯【終極大一統：全站細字、按鈕與選單通通強制換衣服】
-   ========================================== */
-/* 🛠️ 強制把你全網所有內文、按鈕、選單、介紹，通通無差別換成 Playfair Display！ */
-body, nav a, .btn-donate, .btn-submit, .btn-filter, .description, p, span, div, a {
-    font-family: 'Playfair Display', 'Playfair600Local', serif !important; 
-}
