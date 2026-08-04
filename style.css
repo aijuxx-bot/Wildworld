@@ -205,6 +205,9 @@ nav a:hover {
 
 }
 
+
+
+
 /* 按鈕樣式 */
 .cta-group {
     display: flex;
@@ -495,7 +498,7 @@ nav a:hover {
 /* 確保文字內容浮在遮罩最上方，不會被遮住 */
 
 .mission-content {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif !important; /* 🎯 修正：改用雲端解鎖版名稱 */
 
     max-width: 800px;
     text-align: center;
@@ -532,7 +535,7 @@ nav a:hover {
 }
 
 .mission-content h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif !important; /* 🎯 修正：改用雲端解鎖版名稱 */
     font-size: 3.5rem;
     color: #fff;
     line-height: 1.2;
@@ -605,3 +608,18 @@ nav a:hover {
     transform: scale(1.1); 
 }
 
+/* 註冊直立版的 Playfair Display 600 SemiBold */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('https://fonts.gstatic.com') format('woff2'); 
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 🎯 最終強制令 */
+.mission-content, 
+.mission-content h2 {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 600 !important;
+}
