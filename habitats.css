@@ -154,3 +154,30 @@
     margin-bottom: 15px;
 
 }
+
+/* ==========================================
+   📱 手機/平板裝置響應式優化 (螢幕寬度 768px 以下自動觸發)
+   ========================================== */
+@media (max-width: 768px) {
+    /* 讓內文兩邊留點安全邊距，不貼死螢幕邊緣 */
+    .habitats-main {
+        padding: 100px 20px 60px 20px !important;
+    }
+    
+    /* 頂部大標題字體縮小，避免在手機上過大而折行變得難看 */
+    .habitats-header h1 {
+        font-size: 2.2rem !important;
+    }
+
+    /* 🎯 核心修正：將原本 3 欄的網格，強制變成 1 欄垂直排列 */
+    .habitats-grid {
+        grid-template-columns: 1fr !important; /* 強制變單欄 */
+        gap: 20px !important; /* 縮小卡片間距 */
+    }
+
+    /* 調整手機上卡片的高度，避免太高滑不完 */
+    .habitat-card {
+        height: 380px !important;
+    }
+}
+
