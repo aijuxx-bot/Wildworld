@@ -615,7 +615,7 @@ nav a:hover {
 /* 1. 註冊直立版的 Playfair Display 600 SemiBold（精準填入真實 .woff2 網址） */
 @font-face {
     font-family: 'Playfair600GitHub';
-    src: url('https://fonts.google.com/') format('woff2'); 
+    src: url('https://fonts.gstatic.com') format('woff2'); 
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -624,7 +624,7 @@ nav a:hover {
 /* 2. 註冊斜體版的 Playfair Display 600 SemiBold Italic */
 @font-face {
     font-family: 'Playfair600GitHub';
-    src: url('https://fonts.google.com/') format('woff2'); 
+    src: url('https://fonts.gstatic.com') format('woff2'); 
     font-weight: 600;
     font-style: italic;
     font-display: swap;
