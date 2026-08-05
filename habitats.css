@@ -155,29 +155,87 @@
 
 }
 
-/* ==========================================
-   📱 手機/平板裝置響應式優化 (螢幕寬度 768px 以下自動觸發)
-   ========================================== */
+
+/* =======================================================
+   📱 WILDWORLD 跨設備手機端響應式終極解鎖補丁
+   擺在 habitats.css 最底部，強制修正手機亂版、撐寬問題
+   ======================================================= */
 @media (max-width: 768px) {
-    /* 讓內文兩邊留點安全邊距，不貼死螢幕邊緣 */
+    /* 1. 🎯 修正被頂部選單撐寬的問題（防止手機網頁左右亂晃） */
+    header {
+        padding: 15px 20px !important;
+        flex-direction: column !important; /* 讓 Logo、導覽列、Donate 按鈕變成上下直排 */
+        gap: 15px !important;
+        position: static !important; /* 暫時取消固定頂部，防止擋住手機內容 */
+        width: 100% !important;
+    }
+
+    header nav {
+        display: flex !important;
+        flex-wrap: wrap !important; /* 讓選單按鈕在手機不夠寬時自動折行 */
+        justify-content: center !important;
+        gap: 12px !important;
+    }
+
+    header nav a {
+        font-size: 0.9rem !important; /* 縮小手機菜單字型 */
+    }
+
+    header .btn-donate {
+        width: 100% !important; /* 讓捐款按鈕在手機上變滿版，更好點擊 */
+        text-align: center !important;
+        padding: 10px 0 !important;
+    }
+
+    /* 2. 🎯 修正主容器間距（防止標題被頂部選單擋住） */
     .habitats-main {
-        padding: 100px 20px 60px 20px !important;
+        padding: 40px 15px 60px 15px !important; /* 減少內邊距，適合手機螢幕 */
+        width: 100% !important;
+        overflow-hidden: hidden !important;
+    }
+
+    /* 3. 🎯 修正頁面大標題 */
+    .habitats-header {
+        margin-bottom: 35px !important;
+        width: 100% !important;
+    }
+
+    .habitats-header h1 {
+        font-size: 2.2rem !important; /* 縮小大隻字型，避免手機上長單字折行難看 */
+        line-height: 1.3 !important;
+    }
+
+    .habitats-header .intro-text {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 4. 🎯 核心大魔王：強制將 3 欄 Grid 砸成 1 欄垂直直排 */
+    .habitats-grid {
+        grid-template-columns: 1fr !important; /* 100% 變單欄 */
+        gap: 25px !important; /* 卡片上下間距縮小 */
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    /* 5. 🎯 修正單張卡片在手機上的高度與特效 */
+    .habitat-card {
+        width: 100% !important;
+        height: 360px !important; /* 縮短高度，方便手機用拇指滑動 */
+    }
+
+    /* 6. 讓卡片內文預設就在手機上浮現（因為手機沒有滑鼠 Hover 特效） */
+    .card-content {
+        padding: 20px !important;
+        transform: translateY(0) !important; /* 解除原本隱藏上彈的動畫，直接顯示 */
+    }
+
+    .card-content p,
+    .btn-card {
+        opacity: 1 !important; /* 讓介紹文字和按鈕在手機上直接看得到，不用滑鼠指著 */
     }
     
-    /* 頂部大標題字體縮小，避免在手機上過大而折行變得難看 */
-    .habitats-header h1 {
-        font-size: 2.2rem !important;
-    }
-
-    /* 🎯 核心修正：將原本 3 欄的網格，強制變成 1 欄垂直排列 */
-    .habitats-grid {
-        grid-template-columns: 1fr !important; /* 強制變單欄 */
-        gap: 20px !important; /* 縮小卡片間距 */
-    }
-
-    /* 調整手機上卡片的高度，避免太高滑不完 */
-    .habitat-card {
-        height: 380px !important;
+    .card-content h3 {
+        font-size: 1.5rem !important;
     }
 }
-
