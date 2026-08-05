@@ -1,4 +1,3 @@
-
 /* 全網頁解鎖：所有內嵌錨點跳轉一律變成平滑滾動 */
 html {
     scroll-behavior: smooth;
@@ -608,18 +607,33 @@ nav a:hover {
     transform: scale(1.1); 
 }
 
-/* 註冊直立版的 Playfair Display 600 SemiBold */
+/* =======================================================
+   🌐【WILDWORLD GitHub Pages 專用雲端字型引擎 - 最終修正版】
+   精準指向 Google 官方 Woff2 壓縮字型檔案網址，全球永久通車！
+   ======================================================= */
+
+/* 1. 註冊直立版的 Playfair Display 600 SemiBold（精準填入真實 .woff2 網址） */
 @font-face {
-    font-family: 'Playfair Display';
-    src: url('https://fonts.gstatic.com') format('woff2'); 
+    font-family: 'Playfair600GitHub';
+    src: url('https://fonts.google.com/') format('woff2'); 
     font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 
-/* 🎯 最終強制令 */
+/* 2. 註冊斜體版的 Playfair Display 600 SemiBold Italic */
+@font-face {
+    font-family: 'Playfair600GitHub';
+    src: url('https://fonts.google.com/') format('woff2'); 
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* 🎯 最終最高強制令 */
 .mission-content, 
-.mission-content h2 {
-    font-family: 'Playfair Display', serif !important;
+.mission-content h2,
+.mission-text {
+    font-family: 'Playfair600GitHub', serif !important;
     font-weight: 600 !important;
 }
